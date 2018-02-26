@@ -1,4 +1,19 @@
-<h1> Vouchers</h1>
-<%= @vouchers.each do |voucher| %>
-<p>voucher.name</p>
-<% end %>
+<div class="container">
+  <h1>Vouchers</h1>
+  <%= @vouchers.each do |voucher| %>
+  <div class="row">
+    <div class="col-xs-12 col-sm-6 col-md-4">
+      <p><%= voucher.name %></p>
+      <ul>
+        <li><%= voucher.category %></li>
+        <li>£<%= voucher.price %></li>
+        <li>Valid until <%= voucher.end_date %></li>
+        <li><%= voucher.quantity_left %> left!</li>
+      </ul>
+      <p>
+        <%= link_to "View Voucher", voucher_path(voucher.id) %>
+      </p>
+    </div>
+  </div>
+  <% end %>
+</div>
