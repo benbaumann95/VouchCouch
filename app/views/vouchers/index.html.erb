@@ -1,19 +1,50 @@
-<div class="container">
-  <h1>Vouchers</h1>
-  <%= @vouchers.each do |voucher| %>
-  <div class="row">
-    <div class="col-xs-12 col-sm-6 col-md-4">
-      <p><%= voucher.name %></p>
-      <ul>
-        <li><%= voucher.category %></li>
-        <li>£<%= voucher.price %></li>
-        <li>Valid until <%= voucher.end_date %></li>
-        <li><%= voucher.quantity_left %> left!</li>
-      </ul>
-      <p>
-        <%= link_to "View Voucher", voucher_path(voucher.id) %>
-      </p>
+<div class="content-container">
+
+<!--   <div class="container">
+    <div class="row">
+      <% @vouchers.each do |voucher| %>
+      <div class="col-xs-12 col-sm-6 col-md-4">
+        <p><%= voucher.name %></p>
+        <ul>
+          <li><%= voucher.category %></li>
+          <li>£<%= voucher.price %></li>
+          <li>Valid until <%= voucher.end_date %></li>
+          <li><%= voucher.quantity_left %> left!</li>
+        </ul>
+        <p>
+          <%= link_to "View Voucher", voucher_path(voucher.id) %>
+        </p>
+      </div>
+      <% end %>
     </div>
   </div>
-  <% end %>
+</div> -->
+
+  <div class="container">
+    <h1>Vouchers</h1>
+    <div class="card-columns">
+      <% @vouchers.each do |voucher| %>
+      <div class="card">
+        <% if voucher.photo? %>
+          <% file = 'voucher_placeholder' %>
+        <% else %>
+          <% file = voucher.photo %>
+        <% end %>
+        <%= cl_image_tag(file, width: 400, height: 300, crop: :fill) %>
+        <div class="card-block">
+          <p class="card-title"><%= voucher.name %></p>
+            <ul class="card-text">
+              <li><%= voucher.category %></li>
+              <li>£<%= voucher.price %></li>
+              <li>Valid until <%= voucher.end_date %></li>
+              <li><%= voucher.quantity_left %> left!</li>
+            </ul>
+            <p>
+              <%= link_to "View Voucher", voucher_path(voucher.id) %>
+            </p>
+        </div>
+      </div>
+      <% end %>
+    </div>
+  </div>
 </div>
