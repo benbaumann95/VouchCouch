@@ -1,0 +1,13 @@
+<h1>List a voucher</h1>
+
+<% if @voucher.errors.any? %>
+  <ul>
+    <% @voucher.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+  </ul>
+<% end %>
+
+<%= render 'form', voucher: @voucher %>
+
+<%= link_to 'Back', vouchers_path %>
