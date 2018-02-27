@@ -1,14 +1,12 @@
 .cards-container {
-  background-image: radial-gradient($light-yellow, $dark-yellow);
   padding: 0 40px;
   color: $white;
   height: 100%;
 }
 
 .voucher-container {
-  background-image: radial-gradient($light-yellow, $dark-yellow);
   padding: 20px 40px;
-  color: $black;
+  color: $white;
   height: 100%;
 
   a {
@@ -17,7 +15,7 @@
 
   a:hover {
     text-decoration:none;
-    color: $black;
+    color: $dark-green;
   }
 }
 
