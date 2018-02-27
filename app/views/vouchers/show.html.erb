@@ -1,7 +1,27 @@
-<div class="container">
-  <h2><%= @voucher.name %></h2>
-  <p><%= @voucher.description %></p>
-  <p>£<%= @voucher.price %></p>
+<div class="voucher-container">
+  <div class="voucher-content">
+    <div class="voucher-details">
+      <h3><%= @voucher.name %></h3>
+      <p>Price: £<%= @voucher.price %></p>
+      <p>Valid until <%= @voucher.end_date %></p>
+      <p><%= @voucher.quantity_left %> left</p>
+
+
+      <% if @booking.errors.any? %>
+        <ul>
+          <% @booking.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+        </ul>
+      <% end %>
+      <%= render '/vouchers/booking_form', booking: @booking, voucher: @voucher %>
+
+    </div>
+
+    <div class="voucher-description">
+      <h3>Description</h3>
+      <p><%= @voucher.description %></p>
+    </div>
+  </div>
+  <p class="white-link"><%= link_to " Back to List", vouchers_path, class:"fas fa-chevron-left fa-2x" %></p>
 </div>
-
-
