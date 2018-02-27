@@ -14,19 +14,20 @@
       <%= link_to "My Vouchers", dashboard_path, class: "navbar-wagon-item navbar-wagon-link" %>
       <%= link_to "List a Voucher", new_voucher_path, class: "navbar-wagon-item navbar-wagon-link" %>
 
-
       <!-- Avatar with dropdown menu -->
       <div class="navbar-wagon-item">
-        <div class="dropdown">
-          <%= image_tag "student_avatar.png", class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
-          <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
+
+        <div class="dropdown" id="menu-trigger">
+          <%= image_tag "student_avatar.png", class: "avatar dropdown-toggle", "data-toggle" => "dropdown" %>
+          <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu" id="menu-drop-down">
           <li>
             <%= link_to destroy_user_session_path, method: :delete do %>
-                <i class="fa fa-sign-out"></i>  <%= t(".sign_out", default: "Log out") %>
+            <i class="fa fa-sign-out"></i>  <%= t(".sign_out", default: "Log out") %>
               <% end %>
           </li>
         </ul>
         </div>
+
       </div>
 
     <% else %>
@@ -38,12 +39,11 @@
   </div>
 
 
-
   <!-- Dropdown list appearing on mobile only -->
   <div class="navbar-wagon-item hidden-md hidden-lg">
-    <div class="dropdown">
+    <div class="dropdown" id="mobile-trigger">
       <i class="fa fa-bars dropdown-toggle" data-toggle="dropdown"></i>
-      <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
+      <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu" id="mobile-drop-down">
         <li>
           <%= link_to "Explore Vouchers", vouchers_path, class: "navbar-wagon-item navbar-wagon-link" %>
         </li>
@@ -66,3 +66,31 @@
   </div>
 </div>
 
+
+<script>
+
+  const trigger = document.getElementById("menu-trigger");
+  const menu = document.getElementById("menu-drop-down");
+
+  trigger.addEventListener("click", () => {
+    if(menu.style.display == "none"){
+      menu.style.display = "block";
+    } else {
+      menu.style.display = "none";
+    }
+
+  });
+
+  const mobtrigger = document.getElementById("mobile-trigger");
+  const mobmenu = document.getElementById("mobile-drop-down");
+
+  mobtrigger.addEventListener("click", () => {
+    if(mobmenu.style.display == "none"){
+      mobmenu.style.display = "block";
+    } else {
+      mobmenu.style.display = "none";
+    }
+
+  });
+
+</script>
