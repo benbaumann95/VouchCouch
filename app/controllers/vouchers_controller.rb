@@ -5,6 +5,7 @@ class VouchersController < ApplicationController
 
   def show
     @voucher = Voucher.find(params[:id])
+    @booking = Booking.new()
   end
 
   def new

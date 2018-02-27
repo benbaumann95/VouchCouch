@@ -14,6 +14,6 @@ class Voucher < ApplicationRecord
   ] }
   validates :price, presence: true
   validates :end_date, presence: true
-  # validates :quantity_left, presence: true
+  validates :quantity_left, presence: true
   mount_uploader :photo, PhotoUploader
 end

@@ -1,0 +1,9 @@
+<%= simple_form_for([voucher, booking]) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <% quantity_array = (1..voucher.quantity_left).to_a %>
+    <%= f.input :quantity, collection: quantity_array %>
+    <%= f.button :submit, "Add to Basket", { class: "fas fa-shopping-basket" } %>
+  </div>
+<% end %>

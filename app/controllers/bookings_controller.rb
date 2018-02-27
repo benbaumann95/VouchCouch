@@ -7,7 +7,7 @@ class BookingsController < ApplicationController
     if @booking.save
       redirect_to vouchers_path
     else
-      render :new
+      render '/vouchers/show'
     end
   end
 
