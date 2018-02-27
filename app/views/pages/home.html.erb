@@ -7,18 +7,13 @@
             <h1 class="text-center">VouchCouch</h1>
             <p>All your voucher needs!</p>
 
-            <div class="sign-up-email">
-              <label for="email" id="search-description"> Explore vouchers for any occasion </label>
-              <input type="text" class="form-control" id="email" placeholder="e.g. spa">
+            <div class="search-cta">
+              <label for="search" id="search-description"> Explore vouchers for any occasion </label>
+              <input type="text" class="form-control" id="search" placeholder="e.g. spa">
               <%= link_to vouchers_path do %>
-              <input type="submit" value="Discover!" id="sign-up-btn" class ="btn btn-success form-control">
+              <input type="submit" value="Discover!" id="search-btn" class ="done-btn">
               <% end %>
             </div>
-
-            <!-- <div class="cta-button">
-              <a class="btn btn-success btn-lg">Find a ticket</a>
-              <a class="btn btn-success btn-lg">Sell a ticket</a>
-            </div> -->
 
           </div>
         </div>

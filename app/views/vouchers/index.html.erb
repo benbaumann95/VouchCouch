@@ -1,5 +1,6 @@
 <div class="cards-container">
   <div class="row">
+
     <h1 style="text-align: center;">Vouchers</h1>
 
     <% @vouchers.each do |voucher| %>
@@ -36,6 +37,9 @@
                 <% end %>
 
                 <p><strong><%= voucher.name %></strong></p>
+                <div class="btn-more-info">
+                  More info
+                </div>
               </div>
             <% end %>
           </div>
