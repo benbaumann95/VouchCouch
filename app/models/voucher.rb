@@ -1,16 +1,14 @@
 class Voucher < ApplicationRecord
   belongs_to :user
-  validates :name, presence: true, uniqueness: true
+  validates :name, presence: true
   validates :category, inclusion: { in: [
+    "Marketplace",
     "Fashion",
     "Travel",
-    "Restaurants",
-    "Pubs & Bars",
-    "Technology",
-    "Books",
-    "Music",
-    "Games",
-    "Movies"
+    "Food & Drink",
+    "Electronics",
+    "Hobbies",
+    "Services"
   ] }
   validates :price, presence: true
   validates :end_date, presence: true
