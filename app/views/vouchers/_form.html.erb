@@ -7,122 +7,81 @@
 
   <div class="content-holder">
     <div class="form-row">
-      <div class="half-form">
-        <%= f.label :name %>
-        <%= f.text_field :name, class: 'form-control' %>
+      <div class="form-40">
+        <%= f.label :name, "*Vendor name" %>
+        <%= f.text_field :name, placeholder: "e.g. Amazon", class: 'form-control' %>
       </div>
 
-      <div class="quarter-form">
-        <label>Category</label>
-        <%= f.select :category, [["Books"], ["House"], ["Music"], ["Fashion"], ["Travel"], ["Restaurants"], ["Pubs & Bars"], ["Technology"], ["Games"], ["Movies"]], id: 'category', prompt: 'Select...', class: 'form-control, drop-down' %>
+      <div class="form-30">
+        <div class="flex-row">
+          <div class="category-arrow">
+            <i class="fas fa-sort-down"></i>
+          </div>
+          <%= f.label :category %>
+          <%= f.select :category, [["Books"], ["House"], ["Music"], ["Fashion"], ["Travel"], ["Restaurants"], ["Pubs & Bars"], ["Technology"], ["Games"], ["Movies"]], id: 'category', prompt: 'Select...', class: 'form-control, drop-down' %>
+        </div>
       </div>
 
-      <div class="quarter-form">
-        <%= f.label :price %>
-        <%= f.text_field :price, class: 'form-control' %>
+      <div class="form-30">
+        <%= f.input :price, placeholder: '£', class: 'form-control' %>
       </div>
     </div>
 
     <div class="form-row">
       <div class="flex-row">
         <%= f.label :description %>
-
         <%= f.text_field :description, class: 'form-control', id: 'form-description'%>
       </div>
     </div>
 
-     <div class="form-row">
-      <div class="flex-row">
-<!--         <%= f.label :quantity_left %> -->
-        <%= f.input :quantity_left, class: 'form-control', id: 'form-description'%>
-      </div>
-    </div>
-
     <div class="form-row">
-      <div class="flex-row">
-        <%= f.label :end_date %>
-
-        <%= f.text_field :end_date, class: 'form-control', id: 'form-description'%>
+      <div class="form-30" style="margin: 0 20px 0 0">
+        <div class="flex-row">
+          <!--         <%= f.label :quantity_left %> -->
+          <%= f.input :quantity_left, label: 'Quantity', class: 'form-control', id: 'form-description'%>
+        </div>
       </div>
-    </div>
 
-    <div class="form-row">
-      <div class="flex-row">
-        <%= f.label :photo %>
-        <div class="photo-row">
-          <%= f.input :photo, class: 'form-control, photo-btn'%>
-
-      <div class="fake-btn">
-        Browse
-      </div>
+      <div class="form-70">
+        <div class="flex-row">
+         <!--  <%= f.label :end_date %> -->
+          <div class="date-style">
+            <%= f.input :end_date, label: 'Valid until', class: 'form-control'%>
+          </div>
         </div>
       </div>
     </div>
 
+    <div class="form-row margin-20">
+      <div class="flex-row">
+        <%= f.label :photo, "Upload voucher" %>
+        <div class="photo-row">
+          <%= f.input :photo, class: 'form-control, photo-btn'%>
+          <div class="fake-btn">
+            Browse
+          </div>
+        </div>
+      </div>
+    </div>
 
   </div>
+
   <div class="btns-holder">
     <div class="done-btn">
-      <%= f.submit "Done", class: 'done-btn' %>
+      <button type="button" class="btn btn-primary" class="card-modal-btn" data-toggle="modal" data-target="#exampleModal">
+    <%= f.submit "Done", class: 'done-btn' %>
+  </button>
+
     </div>
   </div>
+
 </div>
 
 
-
-
-
-
-
-
-
-<div class="container voucher-form">
-  <div class="row">
-
-
-List_a_ticket
-    <div class="col-sm-6 col-sm-offset-3 col-md-6 col-sm-offset-4">
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<!--
-
-
-      <div class="form-group">
-        <%= f.label :description %>
-        <%= f.text_field :description, class: 'form-control', id: 'form-description'%>
-      </div>
-
-      <%= f.submit "Create", class: "btn btn-primary" %>
-    </div>
-
-    <% end %>
-
-  </div>
-</div>
+<% end %>
 
 <!-- Button trigger modal -->
+
 
 
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
