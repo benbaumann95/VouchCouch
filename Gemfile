@@ -8,6 +8,7 @@ gem 'puma'
 gem 'rails', '5.1.5'
 gem 'redis'
 gem "pundit"
+gem 'jquery-rails' # Add this line if you use Rails 5.1
 
 gem 'autoprefixer-rails'
 gem 'bootstrap-sass'
