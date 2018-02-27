@@ -16,7 +16,7 @@
         </div>
 
         <div class="card-content">
-          <% if voucher.quantity_left >= 5 %>
+          <% if voucher.quantity_left > 5 %>
             <p class="quantity-left"><%= voucher.quantity_left %> Left</p>
           <% else %>
             <p class="quantity-left highlight-red"><strong><%= voucher.quantity_left %> Left</strong></p>
