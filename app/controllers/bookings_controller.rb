@@ -5,6 +5,8 @@ class BookingsController < ApplicationController
     @booking.voucher = @voucher
     @booking.user = current_user
     if @booking.save
+      @voucher.quantity_left -= @booking.quantity
+      @voucher.save
       redirect_to vouchers_path
     else
       render '/vouchers/show'
