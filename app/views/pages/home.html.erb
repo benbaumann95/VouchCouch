@@ -10,7 +10,9 @@
             <div class="sign-up-email">
               <label for="email" id="search-description"> Explore vouchers for any occasion </label>
               <input type="text" class="form-control" id="email" placeholder="e.g. spa">
+              <%= link_to vouchers_path do %>
               <input type="submit" value="Discover!" id="sign-up-btn" class ="btn btn-success form-control">
+              <% end %>
             </div>
 
             <!-- <div class="cta-button">

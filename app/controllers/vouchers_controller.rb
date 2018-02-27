@@ -1,4 +1,5 @@
 class VouchersController < ApplicationController
+  skip_before_action :authenticate_user!, except: [:create, :new]
   def index
     @vouchers = Voucher.all
   end
