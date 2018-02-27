@@ -1,0 +1,41 @@
+.cards-container {
+  background-image: radial-gradient($light-yellow, $dark-yellow);
+  padding: 0 40px;
+  color: $white;
+  height: 100%;
+}
+
+.voucher-container {
+  background-image: radial-gradient($light-yellow, $dark-yellow);
+  padding: 20px 40px;
+  color: $black;
+  height: 100%;
+
+  a {
+    color: $white;
+  }
+
+  a:hover {
+    text-decoration:none;
+    color: $black;
+  }
+}
+
+.voucher-content {
+  height: 80%;
+  display:flex;
+  justify-content: center;
+  align-content: center;
+  padding: 50px 0;
+}
+
+.voucher-details {
+  padding: 0 30px;
+  width: 60%;
+}
+
+.voucher-description {
+  border-left: solid 1px $green;
+  padding-left: 20px;
+  width: 40%;
+}
