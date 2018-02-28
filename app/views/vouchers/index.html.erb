@@ -12,13 +12,14 @@
               <%= cl_image_tag(file, crop: :fill) %>
             </div>
 
-            <div class="group-content">
-              <p><strong><%= key %></strong></p>
+            <div class="card-content">
               <% quantity = 0 %>
               <% value.each do |voucher| %>
                 <% quantity += voucher.quantity_left %>
               <% end %>
-              <p><strong><%= quantity %> Left</strong></p>
+              <p class="underline-green"><strong><%= quantity %> Left</strong></p>
+              <p><strong><%= key %></strong></p>
+              <p class="btn-show-all">Show all</p>
             </div>
           <% end %>
         </div>
