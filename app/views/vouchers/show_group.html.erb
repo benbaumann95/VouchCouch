@@ -1,0 +1,13 @@
+<h1><%= @name %></h1>
+
+<ul>
+  <% @group.each do |voucher| %>
+    <li>
+      Price: <%= voucher.price %>
+      Quantity: <%= voucher.quantity_left %>
+    </li>
+  <% end %>
+</ul>
+
+
+

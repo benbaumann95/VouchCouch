@@ -3,7 +3,6 @@ class VouchersController < ApplicationController
   def index
     @vouchers = policy_scope(Voucher)
 
-
     @groups = {}
 
     @vouchers.each do |voucher|
@@ -14,11 +13,11 @@ class VouchersController < ApplicationController
         @groups[voucher.name] << voucher
       end
     end
+  end
 
-    # if Voucher.exist?(:name => @voucher.name)
-
-    # else
-    # end
+  def show_group
+    @name = params[:name]
+    @group = Voucher.where(name: @name)
   end
 
   def show
