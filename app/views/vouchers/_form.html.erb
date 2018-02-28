@@ -1,7 +1,8 @@
 
 <div class="create-container">
   <div class="title-holder">
-    List a voucher
+    <%= image_tag "red_ribbon.png", class: 'red-ribbon-img' %>
+    <h3 class="list-voucher-title text-center">List a voucher</h3>
   </div>
   <%= simple_form_for @voucher do |f| %>
 
@@ -44,61 +45,59 @@
 
       <div class="form-70">
         <div class="flex-row">
-         <!--  <%= f.label :end_date %> -->
-          <div class="date-style">
-            <%= f.input :end_date, label: 'Valid until', class: 'form-control'%>
-          </div>
+
+         <div class="date-style">
+          <%= f.input :end_date, label: 'Valid until', class: 'form-control'%>
         </div>
       </div>
     </div>
-
-    <div class="form-row margin-20">
-      <div class="flex-row">
-        <%= f.label :photo, "Upload voucher" %>
-        <div class="photo-row">
-          <%= f.input :photo, class: 'form-control, photo-btn'%>
-          <div class="fake-btn">
-            Browse
-          </div>
-        </div>
-      </div>
-    </div>
-
   </div>
 
-  <div class="btns-holder">
-    <div class="done-btn">
-      <button type="button" class="btn btn-primary" class="card-modal-btn" data-toggle="modal" data-target="#exampleModal">
-    <%= f.submit "Done", class: 'done-btn' %>
-  </button>
-
+  <div class="form-row margin-20">
+    <div class="flex-row">
+      <%= f.label :photo, "Upload voucher" %>
+      <div class="photo-row">
+        <%= f.input :photo, class: 'form-control, photo-btn'%>
+        <div class="fake-btn">
+          Browse
+        </div>
+      </div>
     </div>
   </div>
 
 </div>
 
+<div class="btns-holder">
+  <div class="done-btn">
+    <div type="button" data-toggle="modal" data-target="#exampleModal">
+
+      Done
+
+      <!-- <%= f.submit "Done", class: 'done-btn' %> -->
+    </div>
+  </div>
+</div>
+
+</div>
 
 <% end %>
 
 <!-- Button trigger modal -->
 
-
-
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <h5 class="modal-title" id="exampleModalLabel">VouchCouch</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
+
         </button>
       </div>
-      <div class="modal-body">
-        ...
+      <div class="modal-body text-center">
+        Thanks for listing your voucher!
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
+        <button type="button" class="btn btn-primary">View</button>
       </div>
     </div>
   </div>

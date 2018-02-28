@@ -24,12 +24,20 @@
   opacity: 0.7;
   font-size: 24px;
 }
-.sign-up-email {
+.search-cta {
+  padding-top: 20px;
   margin-top: 20px;
 }
-#email {
-  margin-bottom: 10px;
+#search {
+  margin: 10px 0 20px 0;
 }
-#sign-up-btn {
+#search-btn {
   margin-bottom: 200px;
+  &:hover {
+    background: #57b786;
+    box-shadow: 0 0 5px #a5a4a4;
+  }
+}
+.banner-typed-text{
+  color:white;
 }

@@ -12,6 +12,10 @@
   box-shadow: 0 1px 2px rgba(0,0,0,0.2);
   color: #535353;
   font-weight: bold;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .content-holder{
   background: $light-gray;
@@ -19,7 +23,7 @@
   border-width: 0 1px;
   padding: 30px;
   box-shadow: 0 1px 2px rgba(0,0,0,0.2);
-  color: $charcoal-gray;
+  color: $dark-gray;
 }
 .btns-holder{
   width: 100%;
@@ -40,13 +44,11 @@
   font-size: 14px;
   text-align: center;
 }
-
 .category-arrow {
   position:absolute;
   bottom: 10px;
   right:18px;
 }
-
 .form-row{
   display: flex;
 }
@@ -63,7 +65,6 @@
 }
 .form-30{
   width: 30%;
-
 }
 .form-30:last-child{
   margin: 0 0 0 20px;
@@ -88,43 +89,31 @@
     right:15px;
   }
 }
-
 .margin-20 {
   margin: 20px 0 0 0;
 }
-
 .date-style {
   display:flex;
   padding:0;
 }
-
 .date-style .form-inline, .date-style .form-group  {
   width: 100% !important;
 }
-
 .date-style .form-inline  {
   display: flex !important;
   width: calc(100% + 20px) !important
 }
-
 .form-inline .date {
   line-height: 20px;
   padding: 0 15px !important;
 }
-
-// .date-style .form-group {
-//   margin: 0 0 0 20px;
-// }
-
 .date-style .form-inline .form-control  {
   width: 33% !important;
   margin: 0 !important;
 }
-
 .date-style .form-inline .form-control:nth-child(2) {
   margin: 0 20px !important;
 }
-
 .voucher_photo{
   font-size: 0px !important;
 }
@@ -139,10 +128,9 @@
   font-size: 14px !important;
   text-align: center !important;
 }
-
 .fake-btn{
   border-radius: 6px !important;
-  background-color: #B3BEC5 !important;
+  background-color: #B3BEC5;
   color: #FFF !important;
   text-transform: uppercase !important;
   width: 100px !important;
@@ -150,4 +138,12 @@
   line-height: 40px !important;
   font-size: 14px !important;
   text-align: center !important;
+  &:hover {
+    background-color: white !important;
+  }
 }
+.fake-btn:hover {
+  background: white !important;
+}
+
+

@@ -20,7 +20,7 @@ class VouchersController < ApplicationController
     @voucher.user = current_user
     authorize @voucher
     if @voucher.save
-      redirect_to voucher_path(@voucher)
+      redirect_to dashboard_path
     else
       render :new
     end
