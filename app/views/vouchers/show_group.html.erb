@@ -3,11 +3,22 @@
 <ul>
   <% @group.each do |voucher| %>
     <li>
-      Price: <%= voucher.price %>
-      Quantity: <%= voucher.quantity_left %>
+      <%= link_to voucher_path(voucher.id) do %>
+        Price: <%= voucher.price %>
+        Quantity: <%= voucher.quantity_left %>
+        <% date_diff = (voucher.end_date - Date.today).to_i %>
+        <% if date_diff == 0 %>
+          <p class="days-left"><strong>Expires today</strong></p>
+        <% elsif date_diff == 1 %>
+          <p class="days-left"><strong>Valid for another <%= date_diff %> Day</strong></p>
+        <% elsif date_diff < 7 %>
+          <p class="days-left">Valid for another <%= date_diff %> Days</p>
+        <% else %>
+          <p class="days-left">Valid for another <%= date_diff %> Days</p>
+        <% end %>
+      <% end %>
     </li>
   <% end %>
 </ul>
-
 
 
