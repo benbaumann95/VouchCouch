@@ -3,7 +3,8 @@
   <div class="cards-container">
     <div class="row">
       <div class="col-xs-12 col-sm-6">
-        <div class="card-show" style="background-image: url('http://res.cloudinary.com/unitiximagecloud/image/upload/v1519665010/shopping_bag.jpg')">
+        <%= binding.pry %>
+        <div class="card-show" style="background-image: url(<%= cl_image_path @voucher.photo_file %>)">
          <h3 class="show-card-name"><%= @voucher.name %></h3>
          <p class="card-price">£<%= @voucher.price %></p>
          <p class="voucher-details">Valid until <%= @voucher.end_date %></p>

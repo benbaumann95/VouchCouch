@@ -8,8 +8,28 @@
         <div class="card">
           <%= link_to vouchers_group_path(key) do %>
             <div class="card-image">
-              <% file = 'voucher_placeholder' %>
-              <%= cl_image_tag(file, crop: :fill) %>
+              <% if value[0].category == "Food & Drink"  %>
+                <% file = 'food_and_drink' %>
+                <%= cl_image_tag(file, crop: :fill) %>
+              <% elsif value[0].category == "Marketplace"  %>
+                <% file = 'marketplace' %>
+                <%= cl_image_tag(file, crop: :fill) %>
+              <% elsif value[0].category == "Fashion" %>
+                <% file = 'fashion' %>
+                <%= cl_image_tag(file, crop: :fill) %>
+              <% elsif value[0].category == "Travel" %>
+                <% file = 'travel' %>
+                <%= cl_image_tag(file, crop: :fill) %>
+              <% elsif value[0].category == "Hobbies" %>
+                <% file = 'hobbies' %>
+                <%= cl_image_tag(file, crop: :fill) %>
+              <% elsif value[0].category == "Electronics" %>
+                <% file = 'electronics' %>
+                <%= cl_image_tag(file, crop: :fill) %>
+              <% else %>
+                <% file = 'service' %>
+                <%= cl_image_tag(file, crop: :fill) %>
+              <% end %>
             </div>
 
             <div class="card-content">

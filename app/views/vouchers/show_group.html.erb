@@ -5,7 +5,7 @@
       <% @group.each do |voucher| %>
       <div class="col-xs-12 col-sm-6">
         <%= link_to voucher_path(voucher.id) do %>
-        <div class="card-show" style="background-image: url('http://res.cloudinary.com/unitiximagecloud/image/upload/v1519665010/shopping_bag.jpg')">
+        <div class="card-show" style="background-image: url(<%= cl_image_path voucher.photo_file %>)">
          <h3 class="show-card-name"><%= @name %></h3>
          <p class="card-price">£<%= voucher.price %></p>
          <p>Quantity: <%= voucher.quantity_left %></p>
