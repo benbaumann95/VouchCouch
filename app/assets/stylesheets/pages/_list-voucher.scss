@@ -12,6 +12,10 @@
   box-shadow: 0 1px 2px rgba(0,0,0,0.2);
   color: #535353;
   font-weight: bold;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .content-holder{
   background: $light-gray;
@@ -19,7 +23,7 @@
   border-width: 0 1px;
   padding: 30px;
   box-shadow: 0 1px 2px rgba(0,0,0,0.2);
-  color: $charcoal-gray;
+  color: $dark-gray;
 }
 .btns-holder{
   width: 100%;
@@ -139,7 +143,7 @@
   }
 }
 .fake-btn:hover {
-    background: white !important;
-  }
+  background: white !important;
+}
 
 

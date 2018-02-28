@@ -7,7 +7,7 @@
   border: solid 0.4px $green;
   border-radius: 5px;
   padding: 10px 10px;
-  box-shadow: 0 0 10px $gray;
+  box-shadow: 0 0 5px $gray;
 
   .card-content {
     padding: 10px 0;
@@ -35,10 +35,12 @@
     justify-content: center;
     height: 60%;
     width: 100%;
+    border-radius: 5px;
 
     img {
       width: 100%;
-      height: 100%,
+      height: 100%;
+      border-radius: 3px;
     }
   }
 }
