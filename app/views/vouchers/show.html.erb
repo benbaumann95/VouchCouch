@@ -2,22 +2,21 @@
 <div class="page-content">
   <div class="cards-container">
     <div class="row">
-      <div class="col-xs-12 col-sm-6 col-md-4">
+      <div class="col-xs-12 col-sm-6">
         <div class="card-show" style="background-image: url('http://res.cloudinary.com/unitiximagecloud/image/upload/v1519665010/shopping_bag.jpg')">
          <h3 class="show-card-name"><%= @voucher.name %></h3>
          <p class="card-price">£<%= @voucher.price %></p>
          <p class="voucher-details">Valid until <%= @voucher.end_date %></p>
          <!-- <p><%= @voucher.description %></p> -->
-         <div class="buy-now-btn">
-          Buy
-        </div>
-      </div>
-    </div>
-  </div>
+         <p class="buy-now-btn">Buy</p>
+       </div>
+     </div>
+   </div>
+ </div>
+
+ <div id="map"></div>
 </div>
-</div>
-<div id="map"></div>
-</div>
+
 
 
 </div>
