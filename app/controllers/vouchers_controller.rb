@@ -2,6 +2,22 @@ class VouchersController < ApplicationController
   skip_before_action :authenticate_user!, except: [:create, :new]
   def index
     @vouchers = policy_scope(Voucher)
+
+    @groups = {}
+
+    @vouchers.each do |voucher|
+      if @groups.has_key?(voucher.name)
+        @groups[voucher.name] << voucher
+      else
+        @groups[voucher.name] = []
+        @groups[voucher.name] << voucher
+      end
+    end
+  end
+
+  def show_group
+    @name = params[:name]
+    @group = Voucher.where(name: @name)
   end
 
   def show
