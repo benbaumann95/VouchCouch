@@ -19,45 +19,51 @@
   </div>
 </div>  -->
 
-<h1> Dashboard </h1>
+<div class="main-container">
+  <div class="title-content text-center">
+    <h1> Dashboard </h1>
+  </div>
 
-<h2> Listings </h2>
-<% current_user.vouchers.each do |voucher| %>
-<div class="message">
-  <div class="message-name">
-    <h3><p><strong> <%= voucher.name %></strong></p></h3>
-  </div>
-  <div class="message-body">
-    <p> <%=voucher.description%></p>
-  </div>
-  <div class="message-status">
-    <% if voucher.quantity_left == 0 %>
-    <p class="status pending"> Sold </p>
-    <% else voucher.quantity_left > 0 %>
-    <p class="status pending"> Pending </p>
+  <div class="bookings-container">
+    <h2 class='text-center'> Bookings </h2>
+    <% current_user.bookings.each do |booking| %>
+
+    <div class="message">
+      <div class="message-name">
+        <h3><p><strong> <%= booking.voucher.name %></strong></p></h3>
+      </div>
+      <div class="message-body">
+        <p> <%= booking.voucher.description %></p>
+      </div>
+      <div class="message-status">
+        <p class="status pending"> Date: <%= booking.created_at %> </p>
+        <p class="price"> <strong>Price: <%= booking.voucher.price %> </strong></p>
+        <p class="price"> <strong>Quantity: <%= booking.quantity %> </strong></p>
+      </div>
+    </div>
     <% end %>
-    <p class="price"> <strong>Price: </strong> <%= voucher.price %></p>
+  </div>
+
+  <div class="listing-container">
+    <h2 class='text-center'> Listings </h2>
+    <% current_user.vouchers.each do |voucher| %>
+    <div class="message">
+      <div class="message-name">
+        <h3><p><strong> <%= voucher.name %></strong></p></h3>
+      </div>
+      <div class="message-body">
+        <p> <%=voucher.description%></p>
+      </div>
+      <div class="message-status">
+        <% if voucher.quantity_left == 0 %>
+        <p class="status sold"> Sold </p>
+        <% else voucher.quantity_left > 0 %>
+        <p class="status pending"> Pending </p>
+        <% end %>
+        <p class="price"> <strong>Price: </strong> <%= voucher.price %></p>
+      </div>
+    </div>
+    <% end %>
   </div>
 </div>
-<% end %>
-
-<h2> Bookings </h2>
-
-<% current_user.bookings.each do |booking| %>
-
-
-<div class="message">
-  <div class="message-name">
-    <h3><p><strong> <%= booking.voucher.name %></strong></p></h3>
-  </div>
-  <div class="message-body">
-    <p> <%= booking.voucher.description %></p>
-  </div>
-  <div class="message-status">
-    <p class="status pending"> Date: <%= booking.created_at %> </p>
-    <p class="price"> <strong>Price: <%= booking.voucher.price %> </strong></p>
-    <p class="price"> <strong>Quantity: <%= booking.quantity %> </strong></p>
-  </div>
-</div>
-<% end %>
 
