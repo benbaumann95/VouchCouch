@@ -14,4 +14,16 @@ class Voucher < ApplicationRecord
   validates :end_date, presence: true
   validates :quantity_left, presence: true
   mount_uploader :photo, PhotoUploader
+
+  def photo_file
+      case self.category
+      when "Food & Drink" then 'food_and_drink'
+      when "Marketplace" then 'marketplace'
+      when "Fashion" then 'fashion'
+      when "Travel" then 'travel'
+      when "Hobbies" then 'hobbies'
+      when "Electronics" then 'electronics'
+      when "Services" then "service"
+    end
+  end
 end
