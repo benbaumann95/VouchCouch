@@ -1,49 +1,23 @@
+<div class="booking-container">
+  <h2><%= @voucher.name %></h2>
 
-<div class="page-content">
-  <div class="cards-container">
-    <div class="row">
-      <div class="col-xs-12 col-sm-6">
-        <div class="card-show" style="background-image: url('http://res.cloudinary.com/unitiximagecloud/image/upload/v1519665010/shopping_bag.jpg')">
-         <h3 class="show-card-name"><%= @voucher.name %></h3>
-         <p class="card-price">£<%= @voucher.price %></p>
-         <p class="voucher-details">Valid until <%= @voucher.end_date %></p>
-         <!-- <p><%= @voucher.description %></p> -->
-         <p class="buy-now-btn">Buy</p>
-       </div>
-     </div>
-   </div>
- </div>
+  <div class="booking-content">
+    <p><strong>Description:</strong></p>
+    <p><%=  @voucher.description %></p>
+    <p><strong>Price:</strong>  £<%= @voucher.price %></p>
+    <p><strong>Valid until: </strong><%= @voucher.end_date %></p>
 
- <div id="map"></div>
+    <div>
+      <% if @booking.errors.any? %>
+        <ul>
+          <% @booking.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+         <% end %>
+        </ul>
+      <% end %>
+      <%= render '/vouchers/booking_form', booking: @booking, voucher: @voucher %>
+    </div>
+  </div>
+
+  <p class="white-link"><%= link_to " Back to #{@voucher.name} List", vouchers_group_path(@voucher.name), class:"fas fa-chevron-left" %></p>
 </div>
-
-
-
-</div>
-<p class="show-back-link"><%= link_to "Take me back", vouchers_path, class:"fas fa-chevron-left fa-2x" %></p>
-</div>
-
-
-<script>
-  function initMap() {
-    var uluru = {lat: 51.5074, lng: 0.1278};
-    var map = new google.maps.Map(document.getElementById('map'), {
-      zoom: 4,
-      center: uluru
-    });
-    var marker = new google.maps.Marker({
-      position: uluru,
-      map: map
-    });
-  }
-</script>
-<script async defer
-src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA2NIYVl6gpisqqe-eIXU1sTeQZj9b75vs&callback=initMap">
-</script>
-
-
-  <p class="white-link">
-    <%= link_to " Back to List", vouchers_path, class:"fas fa-chevron-left fa-2x" %>
-  </p>
-</div>
-

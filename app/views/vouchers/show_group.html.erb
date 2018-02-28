@@ -1,35 +1,32 @@
 
 <div class="page-content">
   <div class="cards-container">
+    <h3><%= @name %></h3>
     <div class="row">
       <% @group.each do |voucher| %>
-      <div class="col-xs-12 col-sm-6">
-        <%= link_to voucher_path(voucher.id) do %>
-        <div class="card-show" style="background-image: url('http://res.cloudinary.com/unitiximagecloud/image/upload/v1519665010/shopping_bag.jpg')">
-         <h3 class="show-card-name"><%= @name %></h3>
-         <p class="card-price">£<%= voucher.price %></p>
-         <p>Quantity: <%= voucher.quantity_left %></p>
-         <p class="voucher-details">Valid until <%= voucher.end_date %></p>
+        <div class="col-xs-12 col-sm-6">
+          <%= link_to voucher_path(voucher.id) do %>
+            <div class="card-show" style="background-image: url('http://res.cloudinary.com/unitiximagecloud/image/upload/v1519665010/shopping_bag.jpg')">
+              <% if voucher.quantity_left > 5 %>
+                <p class="card-quantity"><%= voucher.quantity_left %> left</p>
+              <% else %>
+                <p class="card-quantity highlight-red"><strong><%= voucher.quantity_left %> left</strong></p>
+              <% end %>
+              <p class="card-price">£<%= voucher.price %></p>
+              <p class="voucher-details">Valid until <%= voucher.end_date %></p>
+              <p class="buy-now-btn">Buy</p>
+            </div>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
+      <div class="back-link">
+        <%= link_to " Back", vouchers_path, class:"fas fa-chevron-left" %>
+      </div>
+  </div>
 
-         <p class="buy-now-btn">Buy</p>
-       </div>
-       <% end %>
-     </div>
-     <% end %>
-   </div>
- </div>
-
- <div id="map">
- </div>
-
+  <div id="map"></div>
 </div>
-
-
-
-</div>
-<p class="show-back-link"><%= link_to "Take me back", vouchers_path, class:"fas fa-chevron-left fa-2x" %></p>
-</div>
-
 
 <script>
   function initMap() {
@@ -44,15 +41,9 @@
     });
   }
 </script>
+
 <script async defer
 src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA2NIYVl6gpisqqe-eIXU1sTeQZj9b75vs&callback=initMap">
 </script>
-
-
-<p class="white-link">
-  <%= link_to " Back to List", vouchers_path, class:"fas fa-chevron-left fa-2x" %>
-</p>
 </div>
-
-
 

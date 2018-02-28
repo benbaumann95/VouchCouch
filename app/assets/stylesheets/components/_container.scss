@@ -27,13 +27,22 @@
   padding: 50px 0;
 }
 
-.voucher-details {
-  padding: 0 30px;
-  width: 60%;
-}
-
 .voucher-description {
   border-left: solid 1px $green;
   padding-left: 20px;
   width: 40%;
+}
+
+.booking-container {
+  margin: 0 200px;
+  color: $black;
+
+  .booking-content {
+    margin: 50px 0;
+    line-height: 2;
+  }
+
+  a:hover {
+    text-decoration: none;
+  }
 }
