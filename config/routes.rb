@@ -10,7 +10,5 @@ Rails.application.routes.draw do
     resources :bookings, only: [:create]
   end
 
-  # resources :users, only: [] do
-  #   resources :vouchers
-  # end
+  get 'vouchers/group/:name', to: 'vouchers#show_group', as: 'vouchers_group'
 end
