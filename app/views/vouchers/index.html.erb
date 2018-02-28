@@ -3,51 +3,26 @@
 
     <h1 class="index_header" style="text-align: center;">Vouchers</h1>
 
-    <% @vouchers.each do |voucher| %>
-      <% if voucher.quantity_left > 0 %>
-        <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
-          <div class="card">
-            <%= link_to voucher_path(voucher.id) do %>
-              <div class="card-image">
-                <% if voucher.photo? %>
-                  <% file = 'voucher_placeholder' %>
-                <% else %>
-                  <% file = voucher.photo %>
-                <% end %>
+    <% @groups.each do |key, value| %>
+      <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
+        <div class="card">
+          <%= link_to vouchers_group_path(key) do %>
+            <div class="card-image">
+              <% file = 'voucher_placeholder' %>
+              <%= cl_image_tag(file, crop: :fill) %>
+            </div>
 
-                <%= cl_image_tag(file, crop: :fill) %>
-              </div>
-
-              <div class="card-content">
-                <% if voucher.quantity_left > 5 %>
-                  <p class="quantity-left"><%= voucher.quantity_left %> Left</p>
-                <% else %>
-                  <p class="quantity-left highlight-red"><strong><%= voucher.quantity_left %> Left</strong></p>
-                <% end %>
-
-                <% date_diff = (voucher.end_date - Date.today).to_i %>
-                <% if date_diff == 0 %>
-                  <p class="days-left"><strong>Expires today</strong></p>
-                <% elsif date_diff == 1 %>
-                  <p class="days-left"><strong>Valid for another <%= date_diff %> Day</strong></p>
-                <% elsif date_diff < 7 %>
-                  <p class="days-left">Valid for another <%= date_diff %> Days</p>
-                <% else %>
-                  <p class="days-left">Valid for another <%= date_diff %> Days</p>
-                <% end %>
-
-                <p><strong><%= voucher.name %></strong></p>
-                <div class="btn-more-info">
-                  More info
-                </div>
-              </div>
-            <% end %>
-          </div>
+            <div class="group-content">
+              <p><strong><%= key %></strong></p>
+              <% quantity = 0 %>
+              <% value.each do |voucher| %>
+                <% quantity += voucher.quantity_left %>
+              <% end %>
+              <p><strong><%= quantity %> Left</strong></p>
+            </div>
+          <% end %>
         </div>
-      <% end %>
+      </div>
     <% end %>
   </div>
 </div>
-
-
-
