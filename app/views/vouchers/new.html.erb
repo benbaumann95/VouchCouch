@@ -1,12 +1,12 @@
 
 
-<% if @voucher.errors.any? %>
+<!--<% if @voucher.errors.any? %>
   <ul>
     <% @voucher.errors.full_messages.each do |message| %>
       <li><%= message %></li>
     <% end %>
   </ul>
-<% end %>
+<% end %> -->
 
 <%= render 'form', voucher: @voucher %>
 
