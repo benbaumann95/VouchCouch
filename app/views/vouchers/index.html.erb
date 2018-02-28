@@ -1,29 +1,39 @@
 <div class="cards-container">
   <div class="row">
 
-    <h1 class="index_header" style="text-align: center;">Vouchers</h1>
+    <h1 class="index_header" style="text-align: center;">Results</h1>
+
+    <div class="search-bar-index">
+      <label for="search" id="index-search-description">
+
+      </label>
+      <input type="text" class="form-control" id="search" placeholder="try travel">
+      <%= link_to vouchers_path do %>
+      <input type="submit" value="Discover!"  class ="done-btn">
+      <% end %>
+    </div>
 
     <% @groups.each do |key, value| %>
-      <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
-        <div class="card">
-          <%= link_to vouchers_group_path(key) do %>
-            <div class="card-image">
-              <% file = 'voucher_placeholder' %>
-              <%= cl_image_tag(file, crop: :fill) %>
-            </div>
-
-            <div class="card-content">
-              <% quantity = 0 %>
-              <% value.each do |voucher| %>
-                <% quantity += voucher.quantity_left %>
-              <% end %>
-              <p class="underline-green"><strong><%= quantity %> Left</strong></p>
-              <p><strong><%= key %></strong></p>
-              <p class="btn-show-all">Show all</p>
-            </div>
-          <% end %>
+    <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
+      <div class="card">
+        <%= link_to vouchers_group_path(key) do %>
+        <div class="card-image">
+          <% file = 'voucher_placeholder' %>
+          <%= cl_image_tag(file, crop: :fill) %>
         </div>
+
+        <div class="card-content">
+          <% quantity = 0 %>
+          <% value.each do |voucher| %>
+          <% quantity += voucher.quantity_left %>
+          <% end %>
+          <p class="underline-green"><strong><%= quantity %> Left</strong></p>
+          <p><strong><%= key %></strong></p>
+          <p class="btn-show-all">Show all</p>
+        </div>
+        <% end %>
       </div>
+    </div>
     <% end %>
   </div>
 </div>
