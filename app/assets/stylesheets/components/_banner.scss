@@ -1,11 +1,23 @@
 .banner {
   color: white;
   text-align: center;
-  height: calc(100vh - 110px);
+  height: calc(100vh - 100px);
   background-size: cover !important;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+
+  .banner-content-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .banner-content {
+    width: 500px;
+  }
+
+  #query {
+    width: 100%;
+  }
+
 }
 
 .banner h1 {
@@ -20,7 +32,6 @@
   font-weight: lighter;
   color: rgb(255, 255, 255);
   opacity: 0.7;
-  margin-bottom: 30px;
 }
 
 .banner {
@@ -32,11 +43,6 @@
 #search-description {
   opacity: 0.7;
   font-size: 24px;
-}
-
-.search-cta {
-  padding-top: 20px;
-  margin-top: 20px;
 }
 
 #search {
