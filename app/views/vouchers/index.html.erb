@@ -37,7 +37,7 @@
                 <% when "Electronics" %>
                   <% file = 'electronics' %>
                   <%= cl_image_tag(file, crop: :fill) %>
-                <% when "Services" %>
+                <% else %>
                   <% file = 'service' %>
                   <%= cl_image_tag(file, crop: :fill) %>
               <% end %>
