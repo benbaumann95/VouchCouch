@@ -4,8 +4,8 @@
     <h2 class='text-center', id = 'h2-header-style'><%= @name.upcase %></h2>
     <div class="row">
       <% @group.each do |voucher| %>
-      <% unless voucher.quantity_left == 0 %>
-        <div class="col-xs-12 col-sm-6">
+        <% unless voucher.quantity_left == 0 %>
+          <div class="col-xs-12 col-sm-6">
           <%= link_to voucher_path(voucher.id) do %>
             <div class="card-show" style="background-image: url(<%= cl_image_path voucher.photo_file %>)">
               <% if voucher.quantity_left > 5 %>
@@ -18,13 +18,14 @@
               <p class="buy-now-btn">Buy</p>
             </div>
           <% end %>
-        </div>
+          </div>
         <% end %>
       <% end %>
     </div>
-      <div class="back-link">
-        <%= link_to " Back", vouchers_path, class:"fas fa-chevron-left" %>
-      </div>
+
+    <div class="back-link">
+      <%= link_to " Back", vouchers_path, class:"fas fa-chevron-left" %>
+    </div>
   </div>
 
   <div id="map"></div>

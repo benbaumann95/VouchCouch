@@ -4,8 +4,7 @@ class VouchersController < ApplicationController
     if params[:query].nil?
       @vouchers = policy_scope(Voucher)
     else
-      @vouchers = policy_scope(Voucher).search(params[:query],
-        { minWordSizefor2Typos: 4 })
+      @vouchers = policy_scope(Voucher).search(params[:query])
     end
 
     @groups = {}
