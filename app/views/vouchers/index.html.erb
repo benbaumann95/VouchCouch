@@ -13,56 +13,54 @@
   <div class="row">
 
     <% @groups.each do |key, value| %>
-    <% value.each do |val| %>
-    <% if val.quantity_left != 0 %>
-    <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
-      <div class="card">
-        <%= link_to vouchers_group_path(key) do %>
-        <div class="card-image">
-          <% if value[0].category == "Food & Drink"  %>
-          <% file = 'food_and_drink' %>
-          <%= cl_image_tag(file, crop: :fill) %>
-          <% elsif value[0].category == "Marketplace"  %>
-          <% file = 'marketplace' %>
-          <%= cl_image_tag(file, crop: :fill) %>
-          <% elsif value[0].category == "Fashion" %>
-          <% file = 'fashion' %>
-          <%= cl_image_tag(file, crop: :fill) %>
-          <% elsif value[0].category == "Travel" %>
-          <% file = 'travel' %>
-          <%= cl_image_tag(file, crop: :fill) %>
-          <% elsif value[0].category == "Hobbies" %>
-          <% file = 'hobbies' %>
-          <%= cl_image_tag(file, crop: :fill) %>
-          <% elsif value[0].category == "Electronics" %>
-          <% file = 'electronics' %>
-          <%= cl_image_tag(file, crop: :fill) %>
-          <% else %>
-          <% file = 'service' %>
-          <%= cl_image_tag(file, crop: :fill) %>
-          <% end %>
-        </div>
+      <% unless value.any? {|v| v.quantity_left == 0} %>
+            <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
+              <div class="card">
+                <%= link_to vouchers_group_path(key) do %>
+                <div class="card-image">
+                  <% if value[0].category == "Food & Drink"  %>
+                  <% file = 'food_and_drink' %>
+                  <%= cl_image_tag(file, crop: :fill) %>
+                  <% elsif value[0].category == "Marketplace"  %>
+                  <% file = 'marketplace' %>
+                  <%= cl_image_tag(file, crop: :fill) %>
+                  <% elsif value[0].category == "Fashion" %>
+                  <% file = 'fashion' %>
+                  <%= cl_image_tag(file, crop: :fill) %>
+                  <% elsif value[0].category == "Travel" %>
+                  <% file = 'travel' %>
+                  <%= cl_image_tag(file, crop: :fill) %>
+                  <% elsif value[0].category == "Hobbies" %>
+                  <% file = 'hobbies' %>
+                  <%= cl_image_tag(file, crop: :fill) %>
+                  <% elsif value[0].category == "Electronics" %>
+                  <% file = 'electronics' %>
+                  <%= cl_image_tag(file, crop: :fill) %>
+                  <% else %>
+                  <% file = 'service' %>
+                  <%= cl_image_tag(file, crop: :fill) %>
+                  <% end %>
+                </div>
 
 
-        <div class="card-content">
-          <% quantity = 0 %>
-          <% value.each do |voucher| %>
-            <% quantity += voucher.quantity_left %>
-          <% end %>
+                <div class="card-content">
+                  <% quantity = 0 %>
+                  <% value.each do |voucher| %>
+                    <% quantity += voucher.quantity_left %>
+                  <% end %>
 
-          <% if quantity > 5 %>
-            <p class="underline-green"><strong><%= quantity %> Left</strong></p>
-          <% else %>
-            <p class="underline-green red-text"><strong><%= quantity %> Left</strong></p>
-          <% end %>
-          <p class="green-text"><strong><%= key %></strong></p>
-          <p class="btn-show-all">Show all</p>
-        </div>
-        <% end %>
-      </div>
-    </div>
-    <% end %>
-    <% end %>
+                  <% if quantity > 5 %>
+                    <p class="underline-green"><strong><%= quantity %> Left</strong></p>
+                  <% else %>
+                    <p class="underline-green red-text"><strong><%= quantity %> Left</strong></p>
+                  <% end %>
+                  <p class="green-text"><strong><%= key %></strong></p>
+                  <p class="btn-show-all">Show all</p>
+                </div>
+                <% end %>
+              </div>
+            </div>
+      <% end %>
     <% end %>
   </div>
 </div>
