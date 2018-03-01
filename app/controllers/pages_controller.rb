@@ -7,4 +7,7 @@ class PagesController < ApplicationController
     @number_vouchers = Voucher.all.count
     @purchases = Booking.all.count
   end
+
+  def voucher_file
+  end
 end

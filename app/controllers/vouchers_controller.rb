@@ -61,6 +61,8 @@ class VouchersController < ApplicationController
     redirect_to vouchers_path
   end
 
+
+
   private
 
   def voucher_params

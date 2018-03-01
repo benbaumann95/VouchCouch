@@ -55,6 +55,9 @@
         <p class="status pending"> <%= booking.created_at.to_date %> </p>
         <p class="price"> <strong>£<%= booking.voucher.price %> </strong></p>
         <p class="price"> <strong>Quantity: <%= booking.quantity %> </strong></p>
+        <%= link_to voucher_file_path(photo: booking.voucher.photo )  do %>
+        <p class="voucher-photo"> File </p>
+        <% end %>
       </div>
     </div>
     <% end %>
