@@ -4,5 +4,7 @@ class PagesController < ApplicationController
   end
 
   def dashboard
+    @number_vouchers = Voucher.all.count
+    @purchases = Booking.all.count
   end
 end

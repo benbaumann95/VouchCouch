@@ -19,15 +19,31 @@
   </div>
 </div>  -->
 
+<div class="dashboard-tabs">
+  <a class="dashboardtab active" href="#listings-list">
+    <h3><%= @number_vouchers %></h3>
+    <p>Listings</p>
+  </a>
+  <a class="dashboardtab" href="#purchases-list">
+    <h3><%= @purchases %></h3>
+    <p>Purchased</p>
+  </a>
+  <a class="dashboardtab" href="#watching-list">
+    <h3>19</h3>
+    <p>Watching</p>
+  </a>
+   <a class="dashboardtab" href="#following-list">
+    <h3>89</h3>
+    <p>Following</p>
+  </a>
+</div>
+
+
+
 <div class="main-container">
-  <div class="title-content text-center">
-    <h1> Dashboard </h1>
-  </div>
-
   <div class="bookings-container">
-    <h2 class='text-center'> Bookings </h2>
+    <h2 class='text-center', id="purchases-list">Purchases</h2>
     <% current_user.bookings.each do |booking| %>
-
     <div class="message">
       <div class="message-name">
         <h3><p><strong> <%= booking.voucher.name %></strong></p></h3>
@@ -36,8 +52,8 @@
         <p> <%= booking.voucher.description %></p>
       </div>
       <div class="message-status">
-        <p class="status pending"> Date: <%= booking.created_at.to_date %> </p>
-        <p class="price"> <strong>Price: <%= booking.voucher.price %> </strong></p>
+        <p class="status pending"> <%= booking.created_at.to_date %> </p>
+        <p class="price"> <strong>£<%= booking.voucher.price %> </strong></p>
         <p class="price"> <strong>Quantity: <%= booking.quantity %> </strong></p>
       </div>
     </div>
@@ -45,7 +61,7 @@
   </div>
 
   <div class="listing-container">
-    <h2 class='text-center'> Listings </h2>
+    <h2 class='text-center', id="listings-list"> Listings </h2>
     <% current_user.vouchers.each do |voucher| %>
     <div class="message">
       <div class="message-name">
@@ -60,7 +76,7 @@
         <% else voucher.quantity_left > 0 %>
         <p class="status pending"> Pending </p>
         <% end %>
-        <p class="price"> <strong>Price: </strong> <%= voucher.price %></p>
+        <p class="price"> <strong>£</strong> <%= voucher.price %></p>
       </div>
     </div>
     <% end %>
