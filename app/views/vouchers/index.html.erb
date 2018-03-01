@@ -1,17 +1,16 @@
 <div class="cards-container">
+    <h1 class="index_header" style="text-align: center;">Vouchers</h1>
+
+    <%= form_tag vouchers_path, method: :get, class: 'form-inline voucher-searchbar' do %>
+        <%= text_field_tag :query,
+        params[:query],
+        class: "form-control",
+        placeholder: "Search by name or category (Amazon, Topshop, etc.)"
+        %>
+      <%= submit_tag("Search", class: 'btn btn-primary', id: 'search-button') %>
+    <% end %>
+
   <div class="row">
-
-    <h1 class="index_header" style="text-align: center;">Results</h1>
-
-    <div class="search-bar-index">
-      <label for="search" id="index-search-description">
-
-      </label>
-      <input type="text" class="form-control" id="search" placeholder="try travel">
-      <%= link_to vouchers_path do %>
-      <input type="submit" value="Discover!"  class ="done-btn">
-      <% end %>
-    </div>
 
     <% @groups.each do |key, value| %>
     <% value.each do |val| %>
@@ -48,10 +47,15 @@
         <div class="card-content">
           <% quantity = 0 %>
           <% value.each do |voucher| %>
-          <% quantity += voucher.quantity_left %>
+            <% quantity += voucher.quantity_left %>
           <% end %>
-          <p class="underline-green"><strong><%= quantity %> Left</strong></p>
-          <p><strong><%= key %></strong></p>
+
+          <% if quantity > 5 %>
+            <p class="underline-green"><strong><%= quantity %> Left</strong></p>
+          <% else %>
+            <p class="underline-green red-text"><strong><%= quantity %> Left</strong></p>
+          <% end %>
+          <p class="green-text"><strong><%= key %></strong></p>
           <p class="btn-show-all">Show all</p>
         </div>
         <% end %>

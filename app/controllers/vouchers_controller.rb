@@ -1,7 +1,12 @@
 class VouchersController < ApplicationController
   skip_before_action :authenticate_user!, except: [:create, :new]
   def index
-    @vouchers = policy_scope(Voucher)
+    if params[:query].nil?
+      @vouchers = policy_scope(Voucher)
+    else
+      @vouchers = policy_scope(Voucher).search(params[:query],
+        { minWordSizefor2Typos: 4 })
+    end
 
     @groups = {}
 
