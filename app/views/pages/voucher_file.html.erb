@@ -1,5 +1,12 @@
-<div>
-  <div class="voucher-file">
-  <%= cl_image_tag params[:photo] %>
-  </div>
+
+<div class="download-button">
+<a href="<%= params[:photo]  %>" class ="fas fa-cloud-download-alt fa-2x" download > Download </a>
 </div>
+
+  <div class="voucher-file">
+  <% ext = File.extname(params[:photo]) %>
+  <% params[:photo].gsub!(ext, '.jpg')%>
+  <%= cl_image_tag params[:photo], crop: :fill %>
+   </div>
+
+
