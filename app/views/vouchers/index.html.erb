@@ -13,7 +13,7 @@
   <div class="row">
 
     <% @groups.each do |key, value| %>
-      <% unless value.any? {|v| v.quantity_left == 0} %>
+      <% unless value.all? {|v| v.quantity_left == 0} %>
             <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
               <div class="card">
                 <%= link_to vouchers_group_path(key) do %>
