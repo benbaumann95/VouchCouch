@@ -4,6 +4,9 @@
 // Define fonts for body and headers
 $body-font: "PT Sans", "sans-serif";
 $headers-font: 'PT Serif', "serif";
+h2 {
+  font-family: sans-serif;
+}
 
 // To use a font file (.woff) uncomment following lines
 // @font-face {

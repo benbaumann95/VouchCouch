@@ -32,7 +32,7 @@
     <h3>19</h3>
     <p>Watching</p>
   </a>
-   <a class="dashboardtab" href="#following-list">
+  <a class="dashboardtab" href="#following-list">
     <h3>89</h3>
     <p>Following</p>
   </a>
@@ -42,33 +42,35 @@
 
 <div class="main-container">
   <div class="bookings-container">
-    <h2 class='text-center', id="purchases-list">Purchases</h2>
+    <h2 class='text-center', class='tab-link-style', id="purchases-list">Purchases</h2>
     <% current_user.bookings.each do |booking| %>
     <div class="message">
       <div class="message-name">
-        <h3><p><strong> <%= booking.voucher.name %></strong></p></h3>
+        <p> <%= booking.created_at.to_date.strftime('%D') %> </p>
+        <p class='message-voucher-name'><strong> <%= booking.voucher.name %></strong></p>
+        <p class="price"> £<%= booking.voucher.price %> </p>
       </div>
       <div class="message-body">
         <p> <%= booking.voucher.description %></p>
       </div>
       <div class="message-status">
-        <p class="status pending"> <%= booking.created_at.to_date %> </p>
-        <p class="price"> <strong>£<%= booking.voucher.price %> </strong></p>
-        <p class="price"> <strong>Quantity: <%= booking.quantity %> </strong></p>
+
         <%= link_to voucher_file_path(photo: booking.voucher.photo )  do %>
-        <p class="voucher-photo"> File </p>
+        <p class="voucher-photo"> <i class="far fa-file"></i> </p>
         <% end %>
+        <p class="price"> <strong> x <%= booking.quantity %> </strong></p>
       </div>
     </div>
     <% end %>
   </div>
 
   <div class="listing-container">
-    <h2 class='text-center', id="listings-list"> Listings </h2>
+    <h2 class='text-center', class='tab-link-style', id="listings-list"> Listings </h2>
     <% current_user.vouchers.each do |voucher| %>
     <div class="message">
       <div class="message-name">
-        <h3><p><strong> <%= voucher.name %></strong></p></h3>
+        <p class='message-voucher-name'><strong> <%= voucher.name %></strong></p>
+        <p class="price"> £ <%= voucher.price %></p>
       </div>
       <div class="message-body">
         <p> <%=voucher.description%></p>
@@ -79,7 +81,7 @@
         <% else voucher.quantity_left > 0 %>
         <p class="status pending"> Pending </p>
         <% end %>
-        <p class="price"> <strong>£</strong> <%= voucher.price %></p>
+
       </div>
     </div>
     <% end %>
