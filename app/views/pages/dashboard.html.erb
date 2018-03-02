@@ -82,7 +82,7 @@
           </div>
           <div class="message-status">
             <% if voucher.quantity_left == 0 %>
-              <p class="status sold"> All Sold </p>
+              <p class="status sold"> Sold Out </p>
             <%= link_to '', voucher_no_display_path(voucher.id), method: 'post', class: "fas fa-trash-alt", data: {confirm: "Remove from Dashboard?"} %>
             <% else %>
               <p class="status pending"> Pending (x<%= voucher.quantity_left %> left)</p>

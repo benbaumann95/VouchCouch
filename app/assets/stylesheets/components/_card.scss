@@ -7,7 +7,6 @@
   border: solid 0.4px $green;
   border-radius: 5px;
   padding: 10px 10px;
-  //box-shadow: 0 0 5px $gray;
   box-shadow: 15px 20px 60px 0 rgba(0,0,0,.16);
 
   .card-content {
@@ -47,7 +46,8 @@
 }
 .card:hover {
   //background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2));
-  //box-shadow: 0 0px 5px rgba(0,0,0,0.2);
+  box-shadow: none;
+  border: 1px solid $light-gray;
 
   a {
     text-decoration: none;
@@ -78,102 +78,90 @@
 
 // showpage card
 
-.card-show {
-  background-size: cover;
-  background-position: center;
-  height: 150px;
-  border-radius: 1px;
-  margin: 15px 10px;
-  box-shadow: 0 0 10px rgba(0,0,0,0.2);
-  position: relative;
-  font-size: 25px;
-  color: white;
-  font-weight: bolder;
-  text-shadow: 0 0 10px rgba(255,255,255,0.7);
-}
-.cards-container {
-  width: 100%;
-  h3 {
-    color: $black;
-    text-align: center;
+.show-group-card {
+  box-shadow: 15px 20px 60px 0 rgba(0,0,0,.16);
+  margin: 20px 20px;
+  background-color: $dark-gray;
+
+  .card-image img {
+    background-size: cover;
+    background-position: center;
+    height: 180px;
+    width: 100%;
   }
+
   a {
-    color: $black;
+    color: $green;
   }
 
   a:hover {
-    text-decoration:none;
+    text-decoration: none;
   }
 
-  .back-link a {
-    padding-left: 10px;
+  .card-header {
+    display: flex;
+    align-items: center;
     color: $green;
-    margin-top: 50px;
+    padding: 5px 5px;
+
+    h5, p {
+      padding: 10px 10px;
+      margin: 0 0;
+      font-weight: bold;
+    }
+
+    .card-price {
+      position: relative;
+      left: 125px;
+      border: 1px solid $red;
+      border-radius: 50%;
+      height: 50px;
+      width: 50px;
+      align: justify;
+      background-color: $red;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-weight: bold;
+    }
   }
-}
-.card-quantity {
-  position: absolute;
-  left: 10px;
-  top: 8px;
-  font-size: 20px;
-}
-.highlight-red {
-  color: $red;
-}
-.card-price {
-  position: absolute;
-  right: 10px;
-  top: 8px;
-  width: 40px;
-}
-.card-category {
-  position: absolute;
-  top: 10px;
-  left: 10px;
-  font-size: 15px;
-  text-transform: uppercase;
-}
-.voucher-details {
-  position: absolute;
-  bottom: 0px;
-  left: 0px;
-  padding: 0 10px;
-  font-size: 14px;
-  width: 60%;
+
+  .card-content {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    padding: 15px 0px;
+
+    .quantity-and-button {
+      text-align: center;
+      padding: 10px 20px;
+      border-left: 1px solid $green;
+      .btn {
+        width: 75px;
+      }
+    }
+
+    .voucher-details {
+      padding: 10px 20px;
+      p {
+      font-weight: bold;
+      font-size: 20px;
+      }
+    }
+
+    .card-quantity {
+      font-weight: bold;
+      font-size: 20px;
+    }
+  }
+
 }
 
-.card-description p {
-  font-size: 14px;
-  opacity: 0.7;
-  font-weight: lighter;
-}
-.card-link {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  right: 0;
-  width: 100%;
-  z-index: 2;
-  background: black;
-  opacity: 0;
-}
-.card-link:hover {
-  opacity: 0.1;
-}
-.buy-now-btn {
-  width: 70px;
-  background: #C2413B;
-  color: #FFF;
-  font-weight: bolder;
-  border-radius: 6px;
-  text-transform: uppercase;
-  line-height: 40px;
-  font-size: 14px;
-  text-align: center;
-  position: absolute !important;
-  right: 5px;
-  top: 100px;
-  &:hover {
-    background: #B33C36
+
+.show-group-content {
+  display: flex;
+
+  .cards-and-header {
+    width: 66%;
   }
 }
