@@ -21,7 +21,6 @@ ActiveRecord::Schema.define(version: 20180302051542) do
     t.bigint "voucher_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.boolean "display", default: true
     t.boolean "display_flag", default: true
     t.index ["user_id"], name: "index_bookings_on_user_id"
     t.index ["voucher_id"], name: "index_bookings_on_voucher_id"
@@ -57,7 +56,6 @@ ActiveRecord::Schema.define(version: 20180302051542) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "photo"
-    t.boolean "display", default: true
     t.boolean "display_flag", default: true
     t.index ["user_id"], name: "index_vouchers_on_user_id"
   end

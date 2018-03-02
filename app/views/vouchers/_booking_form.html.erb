@@ -1,9 +1,9 @@
 <%= simple_form_for([voucher, booking]) do |f| %>
   <%= f.error_notification %>
 
-  <div class="form-inputs">
+  <div class="form-inputs form-inline" style="
+    display:  flex; ", id='quantity-summary-color'>
     <% quantity_array = (1..voucher.quantity_left).to_a %>
-    <p><%= f.input :quantity, collection: quantity_array %></p>
-    <p><%= f.submit "Update", { class: "quantity-btn" } %></p>
+    <p><%= f.input :quantity, label: 'Quantity', collection: quantity_array, input_html: {class: "padme"} %><%= f.submit "Buy", { class: "buy-btn" } %></p>
   </div>
 <% end %>
