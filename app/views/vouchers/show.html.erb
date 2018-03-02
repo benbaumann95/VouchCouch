@@ -5,62 +5,81 @@
   </div>
 
   <div class="summary-content-holder">
-    <div class="summary-row">
-      <div class="summary-30", class="vendor-name-summary">
-        <p>Vendor: <%= @voucher.name.upcase %></p>
-      </div>
-
-      <div class="summary-50">
-        <div class="flex-row">
-          <p>Category: <%= @voucher.category.upcase %></p>
+    <div class="main-summary-container">
+      <div class="summary-row">
+        <div class="summary-50", class="margin-right-summary">
+          <p>Vendor</p>
+        </div>
+        <div class="summary-50", class="margin-right-summary">
+          <p><strong><%= @voucher.name.upcase %></strong></p>
         </div>
       </div>
 
-      <div class="summary-20">
-        <p>Price: £<%= @voucher.price %></p>
+      <div class="summary-row">
+        <div class="summary-50", class="margin-right-summary">
+          <p>Category</p>
+        </div>
+        <div class="summary-50", class="margin-right-summary">
+          <p><strong><%= @voucher.category.upcase %></strong></p>
+        </div>
+      </div>
+
+      <div class="summary-row">
+        <div class="summary-50", class="margin-right-summary">
+          <p>Valid until</p>
+        </div>
+        <div class="summary-50", class="margin-right-summary">
+          <p id='valid-date-summary'><strong><%= @voucher.end_date %></strong></p>
+        </div>
       </div>
     </div>
 
     <div class="summary-row">
-      <div class="flex-row">
-        <p>Description: <br> <%= @voucher.description %></p>
+      <div class="summary-100">
+        <div class="summary-flex-row">
+          <p>Description</p>
+          <p class="voucher-summary-description"> <%= @voucher.description %></p>
+        </div>
       </div>
     </div>
 
-    <div class="summary-row">
-      <div class="flex-row">
-        <p><strong>Valid until: </strong><%= @voucher.end_date %></p>
-      </div>
-    </div>
+    <div class="secondary-summary-container">
+      <div class="summary-100", class="margin-right-summary">
 
-    <div class="summary-row">
-      <div class="summary-20">
-        <% if @booking.errors.any? %>
-        <ul>
-          <% @booking.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
+        <div class="summary-row">
+          <div class="summary-50", class="margin-right-summary">
+            <p>Price</p>
+          </div>
+          <div class="summary-50", class="margin-right-summary">
+            <p id='summary-price'>£<%= @voucher.price %></p>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+
+  <div class="summary-btns-holder">
+
+
+      <div class="summary-100", class="margin-right-summary">
+        <p><% if @booking.errors.any? %>
+          <ul>
+            <% @booking.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+            <% end %>
+          </ul>
           <% end %>
-        </ul>
-        <% end %>
-        <%= render '/vouchers/booking_form', booking: @booking, voucher: @voucher %>
-      </div>
-      <div class="summary-20">
-
-        <p>TOTAL:</p><% unless @booking.quantity.nil? %>
-        <p><%= @voucher.price*@booking.quantity %></p>
-        <% end %>
+          <%= render '/vouchers/booking_form', booking: @booking, voucher: @voucher %></p>
+        </div>
 
 
-      </div>
+
+
     </div>
-
-
-
 
   </div>
 
-</div>
-</div>
 
-
-<p class="white-link"><%= link_to " Back to #{@voucher.name.upcase} list", vouchers_group_path(@voucher.name), class:"fas fa-chevron-left" %></p>
+  <p class="white-link"><%= link_to " Back to #{@voucher.name.upcase} list", vouchers_group_path(@voucher.name), class:"fas fa-chevron-left" %></p>

@@ -1,11 +1,12 @@
 // Import Google fonts
 @import url("https://fonts.googleapis.com/css?family=PT+Sans:400,700|PT+Serif:400,700");
+@import url('https://fonts.googleapis.com/css?family=Nunito+Sans');
 
 // Define fonts for body and headers
 $body-font: "PT Sans", "sans-serif";
-$headers-font: 'PT Serif', "serif";
-h2 {
-  font-family: sans-serif;
+$headers-font: 'Nunito Sans', sans-serif;
+h1, h2, h3, p {
+  font-family: 'Nunito Sans', sans-serif;
 }
 
 // To use a font file (.woff) uncomment following lines
