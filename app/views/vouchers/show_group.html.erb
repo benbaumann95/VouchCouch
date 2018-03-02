@@ -14,18 +14,28 @@
               <div class="show-group-card">
 
                 <%= link_to voucher_path(voucher.id) do %>
-                  <h4><%= voucher.category %></h4>
+                  <div class="card-header">
+                    <h5><%= voucher.category %></h5>
+                    <div class="card-price">£<%= voucher.price %></div>
+                  </div>
+
                   <div class="card-image">
                     <%= cl_image_tag(voucher.photo_file, crop: :fill) %>
                   </div>
-                  <% if voucher.quantity_left > 5 %>
-                    <p class="card-quantity"><%= voucher.quantity_left %> left</p>
-                  <% else %>
-                    <p class="card-quantity highlight-red"><strong><%= voucher.quantity_left %> left</strong></p>
-                  <% end %>
-                  <p class="card-price">£<%= voucher.price %></p>
-                  <p class="voucher-details">Valid until <%= voucher.end_date %></p>
-                  <p class="buy-now-btn">Buy</p>
+
+                  <div class="card-content">
+                      <div class="voucher-details">
+                        Valid until <p><%= voucher.end_date %></p>
+                      </div>
+                      <div class="quantity-and-button">
+                      <% if voucher.quantity_left > 5 %>
+                        <p class="card-quantity"><%= voucher.quantity_left %> left</p>
+                      <% else %>
+                        <p class="card-quantity highlight-red"><strong><%= voucher.quantity_left %> left</strong></p>
+                      <% end %>
+                      <p class="btn btn-danger">Buy</p>
+                    </div>
+                  </div>
                 <% end %>
 
               </div>
