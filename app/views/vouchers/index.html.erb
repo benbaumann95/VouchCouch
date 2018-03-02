@@ -34,7 +34,7 @@
   <div class="row">
 
     <% @groups.each do |key, value| %>
-      <% unless value.all? {|v| v.quantity_left == 0} %>
+      <% unless (value.all? {|v| v.quantity_left == 0}) || (value.all? {|v| (Date.today > v.end_date)}) %>
         <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
           <div class="card">
 
