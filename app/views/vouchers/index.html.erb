@@ -1,5 +1,22 @@
 <div class="cards-container">
-    <h1 class="index_header" style="text-align: center;">Vouchers</h1>
+  <h1 class="index_header" style="text-align: center;">Vouchers</h1>
+
+  <div class="filter-container">
+    <%= form_tag vouchers_path, method: 'get', class: 'vouchers-filter' do %>
+      <% if !@searched_category.nil? %>
+        <%= select_tag :category,  options_for_select(@categories), :onchange => "this.form.submit();", :include_blank => @searched_category, class: "selected-filter" %>
+      <% else %>
+        <%= select_tag :category,  options_for_select(@categories), :onchange => "this.form.submit();", :include_blank => "Filter by Category" %>
+      <% end %>
+    <% end %>
+
+    <%= form_tag vouchers_path, method: 'get', class: 'vouchers-filter' do %>
+      <% if !@searched_name.nil? %>
+        <%= select_tag :category,  options_for_select(@categories), :onchange => "this.form.submit();", :include_blank => @searched_name, class: "selected-filter" %>
+      <% else %>
+        <%= select_tag :name,  options_for_select(@names), :onchange => "this.form.submit();", :include_blank => "Filter by Store" %>
+      <% end %>
+    <% end %>
 
     <%= form_tag vouchers_path, method: :get, class: 'form-inline voucher-searchbar' do %>
         <%= text_field_tag :query,
@@ -7,8 +24,9 @@
         class: "form-control",
         placeholder: "Search by name or category (Amazon, Topshop, etc.)"
         %>
-      <%= submit_tag("Search", class: 'btn btn-primary', id: 'search-button') %>
+      <%= submit_tag("Search", class: 'btn btn-fix-width btn-primary', id: 'search-button') %>
     <% end %>
+  </div>
 
   <div class="row">
 

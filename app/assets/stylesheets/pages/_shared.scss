@@ -1,5 +1,6 @@
 html, body {
   height: 100%;
+  overflow: auto;
   background-image: radial-gradient(rgba(0,0,0,0.0), rgba(0,0,0,0.05));
   background-color: $white-green;
 }
