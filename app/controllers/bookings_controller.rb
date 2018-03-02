@@ -14,6 +14,21 @@ class BookingsController < ApplicationController
     end
   end
 
+  def no_display
+    @booking = Booking.find(params[:id])
+    authorize @booking
+    @booking.update(display_flag: false)
+    @booking.save
+    redirect_to dashboard_path
+  end
+
+  def destroy
+    @booking = Booking.find(params[:id])
+    authorize @booking
+    @booking.destroy
+    redirect_to dashboard_path
+  end
+
   private
 
   def set_voucher
@@ -21,6 +36,6 @@ class BookingsController < ApplicationController
   end
 
   def booking_params
-    params.require(:booking).permit(:quantity, :voucher_id, :user_id)
+    params.require(:booking).permit(:quantity, :voucher_id, :user_id, :display)
   end
 end

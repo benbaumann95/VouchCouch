@@ -75,14 +75,20 @@ class VouchersController < ApplicationController
     @voucher = Voucher.find(params[:id])
     authorize @voucher
     @voucher.destroy
-    redirect_to vouchers_path
+    redirect_to dashboard_path
   end
 
-
+  def no_display
+    @voucher = Voucher.find(params[:id])
+    authorize @voucher
+    @voucher.update(display_flag: false)
+    @voucher.save
+    redirect_to dashboard_path
+  end
 
   private
 
   def voucher_params
-    params.require(:voucher).permit(:name, :category, :price, :quantity_left, :description, :end_date, :photo)
+    params.require(:voucher).permit(:name, :category, :price, :quantity_left, :description, :end_date, :photo, :display)
   end
 end

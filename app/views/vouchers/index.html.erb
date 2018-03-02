@@ -12,7 +12,7 @@
 
     <%= form_tag vouchers_path, method: 'get', class: 'vouchers-filter' do %>
       <% if !@searched_name.nil? %>
-        <%= select_tag :category,  options_for_select(@categories), :onchange => "this.form.submit();", :include_blank => @searched_name, class: "selected-filter" %>
+        <%= select_tag :category,  options_for_select(@names), :onchange => "this.form.submit();", :include_blank => @searched_name, class: "selected-filter" %>
       <% else %>
         <%= select_tag :name,  options_for_select(@names), :onchange => "this.form.submit();", :include_blank => "Filter by Store" %>
       <% end %>
