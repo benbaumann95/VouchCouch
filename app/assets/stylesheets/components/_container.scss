@@ -47,11 +47,22 @@
   }
 }
 #h2-header-style {
-  // border: 3px groove #649885;
-  // margin: 10px 100px 20px 100px;
   padding-bottom: 10px;
-  // border-radius: 10px 10px 5px 5px;
+  margin-top: 0;
   color:$dark-gray;
+}
+
+.show-group-content {
+  .back-link {
+    color: $green;
+    top: 40px;
+    left: 40px;
+    position: relative;
+  }
+
+  .back-link:hover {
+    text-decoration: none;
+  }
 }
 
 

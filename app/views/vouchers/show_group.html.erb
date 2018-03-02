@@ -1,35 +1,43 @@
 
-<div class="page-content">
-  <div class="cards-container">
-    <h2 class='text-center', id = 'h2-header-style'><%= @name.upcase %></h2>
-    <div class="row">
-      <% @group.each do |voucher| %>
-        <% unless voucher.quantity_left == 0 %>
-          <div class="col-xs-12 col-sm-6">
-          <%= link_to voucher_path(voucher.id) do %>
-            <div class="card-show" style="background-image: url(<%= cl_image_path voucher.photo_file %>)">
-              <% if voucher.quantity_left > 5 %>
-                <p class="card-quantity"><%= voucher.quantity_left %> left</p>
-              <% else %>
-                <p class="card-quantity highlight-red"><strong><%= voucher.quantity_left %> left</strong></p>
-              <% end %>
-              <p class="card-price">£<%= voucher.price %></p>
-              <p class="voucher-details">Valid until <%= voucher.end_date %></p>
-              <p class="buy-now-btn">Buy</p>
+<div class="show-group-content">
+  <div class="cards-and-header">
+    <div class="page-header-content">
+      <%= link_to "", vouchers_path, class:"far fa-arrow-alt-circle-left fa-3x back-link" %>
+      <h2 class='text-center', id = 'h2-header-style'><%= @name.upcase %></h2>
+    </div>
+
+    <div class="cards-container">
+      <div class="row">
+        <% @group.each do |voucher| %>
+          <% unless voucher.quantity_left == 0 %>
+            <div class="col-xs-12 col-sm-6">
+              <div class="show-group-card">
+
+                <%= link_to voucher_path(voucher.id) do %>
+                  <h4><%= voucher.category %></h4>
+                  <div class="card-image">
+                    <%= cl_image_tag(voucher.photo_file, crop: :fill) %>
+                  </div>
+                  <% if voucher.quantity_left > 5 %>
+                    <p class="card-quantity"><%= voucher.quantity_left %> left</p>
+                  <% else %>
+                    <p class="card-quantity highlight-red"><strong><%= voucher.quantity_left %> left</strong></p>
+                  <% end %>
+                  <p class="card-price">£<%= voucher.price %></p>
+                  <p class="voucher-details">Valid until <%= voucher.end_date %></p>
+                  <p class="buy-now-btn">Buy</p>
+                <% end %>
+
+              </div>
             </div>
           <% end %>
-          </div>
         <% end %>
-      <% end %>
-    </div>
-
-    <div class="back-link">
-      <%= link_to " Back", vouchers_path, class:"fas fa-chevron-left" %>
+      </div>
     </div>
   </div>
-
   <div id="map"></div>
 </div>
+
 
 <script>
   function initMap() {
