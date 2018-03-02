@@ -1,11 +1,10 @@
 .dashboard-tabs {
-  // background: $dark-gray;
   display: flex;
-  // padding: 10px 10px 0 10px;
   position: fixed -calc(20%);
   width: 100%;
   position: sticky;
-  top: 0;
+  top: 60px;
+  border-bottom: solid 1px $light-gray;
 }
 .dashboard-tabs a {
   color: white;
@@ -14,7 +13,7 @@
 .dashboard-tabs a:hover {
   cursor: pointer;
   text-decoration: none;
-  background-color: $light-green;
+  background-color: $dark-gray;
   // opacity: 0.9;
 }
 .dashboard-tabs h3 {
