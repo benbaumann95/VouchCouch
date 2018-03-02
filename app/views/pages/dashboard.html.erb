@@ -20,19 +20,19 @@
 </div>  -->
 
 <div class="dashboard-tabs">
-  <a class="dashboardtab active" href="#listings-list">
-    <h3><%= @number_vouchers %></h3>
+  <a class="dashboardtab active" id="listings-tab" href="#listings-list">
+    <h3><%= @number_listings %></h3>
     <p>Listings</p>
   </a>
-  <a class="dashboardtab" href="#purchases-list">
-    <h3><%= @purchases %></h3>
+  <a class="dashboardtab" id="bookings-tab" href="#purchases-list">
+    <h3><%= @number_purchases %></h3>
     <p>Purchased</p>
   </a>
-  <a class="dashboardtab" href="#watching-list">
+  <a class="dashboardtab" id="watching-tab" href="#watching-list">
     <h3>19</h3>
     <p>Watching</p>
   </a>
-  <a class="dashboardtab" href="#following-list">
+  <a class="dashboardtab" id="following-tab" href="#following-list">
     <h3>89</h3>
     <p>Following</p>
   </a>
@@ -40,50 +40,56 @@
 
 
 
-<div class="main-container">
+<div class="main-container", id="purchases-list">
   <div class="bookings-container">
-    <h2 class='text-center', class='tab-link-style', id="purchases-list">Purchases</h2>
-    <% current_user.bookings.each do |booking| %>
-    <div class="message">
-      <div class="message-name">
-        <p> <%= booking.created_at.to_date.strftime('%D') %> </p>
-        <p class='message-voucher-name'><strong> <%= booking.voucher.name %></strong></p>
-        <p class="price"> £<%= booking.voucher.price %> </p>
-      </div>
-      <div class="message-body">
-        <p> <%= booking.voucher.description %></p>
-      </div>
-      <div class="message-status">
+    <h2 class='text-center', class='tab-link-style'>Purchases</h2>
 
-        <%= link_to voucher_file_path(photo: booking.voucher.photo )  do %>
-        <p class="voucher-photo"> <i class="far fa-file"></i> </p>
-        <% end %>
-        <p class="price"> <strong> x <%= booking.quantity %> </strong></p>
-      </div>
-    </div>
+    <% current_user.bookings.each do |booking| %>
+      <% if booking.display_flag %>
+        <div class="message">
+          <div class="message-name">
+            <p> <%= booking.created_at.to_date.strftime('%D') %> </p>
+            <p class='message-voucher-name'><strong> <%= booking.voucher.name %></strong></p>
+            <p class="price"> £<%= booking.voucher.price %> </p>
+          </div>
+          <div class="message-body">
+            <p> <%= booking.voucher.description %></p>
+          </div>
+          <div class="message-status">
+            <%= link_to voucher_file_path(photo: booking.voucher.photo )  do %>
+              <p class="voucher-photo"> <i class="far fa-file"></i> </p>
+            <% end %>
+            <p class="price"><strong> x<%= booking.quantity %> </strong></p>
+          </div>
+          <%= link_to '', voucher_booking_no_display_path(booking.voucher_id, booking.id), method: 'post', class: "fas fa-trash-alt", data: {confirm: "Remove from Dashboard?"} %>
+        </div>
+      <% end %>
     <% end %>
   </div>
 
-  <div class="listing-container">
-    <h2 class='text-center', class='tab-link-style', id="listings-list"> Listings </h2>
+  <div class="listings-container", id="listings-list">
+    <h2 class='text-center', class='tab-link-style'> Listings </h2>
     <% current_user.vouchers.each do |voucher| %>
-    <div class="message">
-      <div class="message-name">
-        <p class='message-voucher-name'><strong> <%= voucher.name %></strong></p>
-        <p class="price"> £ <%= voucher.price %></p>
-      </div>
-      <div class="message-body">
-        <p> <%=voucher.description%></p>
-      </div>
-      <div class="message-status">
-        <% if voucher.quantity_left == 0 %>
-        <p class="status sold"> Sold </p>
-        <% else voucher.quantity_left > 0 %>
-        <p class="status pending"> Pending </p>
-        <% end %>
-
-      </div>
-    </div>
+      <% if voucher.display_flag %>
+        <div class="message">
+          <div class="message-name">
+            <p> <%= voucher.created_at.to_date.strftime('%D') %> </p>
+            <p class='message-voucher-name'><strong> <%= voucher.name %></strong></p>
+            <p class="price"> £ <%= voucher.price %></p>
+          </div>
+          <div class="message-body">
+            <p> <%=voucher.description%></p>
+          </div>
+          <div class="message-status">
+            <% if voucher.quantity_left == 0 %>
+              <p class="status sold"> All Sold </p>
+            <%= link_to '', voucher_no_display_path(voucher.id), method: 'post', class: "fas fa-trash-alt", data: {confirm: "Remove from Dashboard?"} %>
+            <% else %>
+              <p class="status pending"> Pending (x<%= voucher.quantity_left %> left)</p>
+            <% end %>
+          </div>
+        </div>
+      <% end %>
     <% end %>
   </div>
 </div>

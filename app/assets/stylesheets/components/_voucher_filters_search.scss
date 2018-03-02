@@ -1,0 +1,40 @@
+.filter-container {
+  color: $dark-gray;
+  display: flex;
+  justify-content: space-between;
+  align-content: center;
+  border-top: 1px solid $light-blue-gray;
+  border-bottom: 1px solid $light-blue-gray;
+  padding: 20px 50px;
+  margin: 20px 0;
+
+  #category, #name {
+    font-size: 16px;
+    text-align-last: center;
+    margin: 0 5px;
+    font-weight: bold;
+    height: 50px;
+  }
+
+  .voucher-searchbar {
+    display: inherit;
+    width: 100%;
+
+    #query {
+      display: table-cell;
+      width:100%;
+      margin: 0 5px;
+      height: auto;
+    }
+  }
+
+  .selected-filter {
+    background-color: $green !important;
+  }
+}
+
+
+
+
+
+
