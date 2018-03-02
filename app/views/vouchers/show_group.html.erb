@@ -4,7 +4,7 @@
     <h2 class='text-center', id = 'h2-header-style'><%= @name.upcase %></h2>
     <div class="row">
       <% @group.each do |voucher| %>
-        <% unless voucher.quantity_left == 0 %>
+        <% unless (voucher.quantity_left == 0) || (Date.today > voucher.end_date) %>
           <div class="col-xs-12 col-sm-6">
           <%= link_to voucher_path(voucher.id) do %>
             <div class="card-show" style="background-image: url(<%= cl_image_path voucher.photo_file %>)">
