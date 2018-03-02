@@ -4,6 +4,6 @@
   <div class="form-inputs">
     <% quantity_array = (1..voucher.quantity_left).to_a %>
     <p><%= f.input :quantity, collection: quantity_array %></p>
-    <p><%= f.submit "Update", { class: "quantity-btn" } %></p>
+    <p><%= f.submit "Buy", { class: "quantity-btn" } %></p>
   </div>
 <% end %>
