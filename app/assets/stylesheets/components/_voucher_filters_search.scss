@@ -5,7 +5,7 @@
   align-content: center;
   border-top: 1px solid $light-blue-gray;
   border-bottom: 1px solid $light-blue-gray;
-  padding: 15px 15px;
+  padding: 20px 50px;
   margin: 20px 0;
 
   #category, #name {
@@ -13,6 +13,7 @@
     text-align-last: center;
     margin: 0 5px;
     font-weight: bold;
+    height: 50px;
   }
 
   .voucher-searchbar {
