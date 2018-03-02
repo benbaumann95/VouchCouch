@@ -21,11 +21,11 @@
 
 <div class="dashboard-tabs">
   <a class="dashboardtab active" href="#listings-list">
-    <h3><%= @number_vouchers %></h3>
+    <h3><%= @number_listings %></h3>
     <p>Listings</p>
   </a>
   <a class="dashboardtab" href="#purchases-list">
-    <h3><%= @purchases %></h3>
+    <h3><%= @number_purchases %></h3>
     <p>Purchased</p>
   </a>
   <a class="dashboardtab" href="#watching-list">
@@ -40,50 +40,49 @@
 
 
 
-<div class="main-container">
+<div class="main-container", id="purchases-list">
   <div class="bookings-container">
-    <h2 class='text-center', class='tab-link-style', id="purchases-list">Purchases</h2>
-    <% current_user.bookings.each do |booking| %>
-    <div class="message">
-      <div class="message-name">
-        <p> <%= booking.created_at.to_date.strftime('%D') %> </p>
-        <p class='message-voucher-name'><strong> <%= booking.voucher.name %></strong></p>
-        <p class="price"> £<%= booking.voucher.price %> </p>
-      </div>
-      <div class="message-body">
-        <p> <%= booking.voucher.description %></p>
-      </div>
-      <div class="message-status">
+    <h2 class='text-center', class='tab-link-style'>Purchases</h2>
 
-        <%= link_to voucher_file_path(photo: booking.voucher.photo )  do %>
-        <p class="voucher-photo"> <i class="far fa-file"></i> </p>
-        <% end %>
-        <p class="price"> <strong> x <%= booking.quantity %> </strong></p>
+    <% current_user.bookings.each do |booking| %>
+      <div class="message">
+        <div class="message-name">
+          <p> <%= booking.created_at.to_date.strftime('%D') %> </p>
+          <p class='message-voucher-name'><strong> <%= booking.voucher.name %></strong></p>
+          <p class="price"> £<%= booking.voucher.price %> </p>
+        </div>
+        <div class="message-body">
+          <p> <%= booking.voucher.description %></p>
+        </div>
+        <div class="message-status">
+          <%= link_to voucher_file_path(photo: booking.voucher.photo )  do %>
+            <p class="voucher-photo"> <i class="far fa-file"></i> </p>
+          <% end %>
+          <p class="price"> <strong> x <%= booking.quantity %> </strong></p>
+        </div>
       </div>
-    </div>
     <% end %>
   </div>
 
-  <div class="listing-container">
-    <h2 class='text-center', class='tab-link-style', id="listings-list"> Listings </h2>
+  <div class="listings-container", id="listings-list">
+    <h2 class='text-center', class='tab-link-style'> Listings </h2>
     <% current_user.vouchers.each do |voucher| %>
-    <div class="message">
-      <div class="message-name">
-        <p class='message-voucher-name'><strong> <%= voucher.name %></strong></p>
-        <p class="price"> £ <%= voucher.price %></p>
+      <div class="message">
+        <div class="message-name">
+          <p class='message-voucher-name'><strong> <%= voucher.name %></strong></p>
+          <p class="price"> £ <%= voucher.price %></p>
+        </div>
+        <div class="message-body">
+          <p> <%=voucher.description%></p>
+        </div>
+        <div class="message-status">
+          <% if voucher.quantity_left == 0 %>
+            <p class="status sold"> Sold </p>
+          <% else voucher.quantity_left > 0 %>
+            <p class="status pending"> Pending </p>
+          <% end %>
+        </div>
       </div>
-      <div class="message-body">
-        <p> <%=voucher.description%></p>
-      </div>
-      <div class="message-status">
-        <% if voucher.quantity_left == 0 %>
-        <p class="status sold"> Sold </p>
-        <% else voucher.quantity_left > 0 %>
-        <p class="status pending"> Pending </p>
-        <% end %>
-
-      </div>
-    </div>
     <% end %>
   </div>
 </div>
