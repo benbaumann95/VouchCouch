@@ -4,8 +4,8 @@ class VouchersController < ApplicationController
     # get the list of all vouchers, then group them by name
 
     # used to display the filter options
-    @categories = Voucher.distinct.pluck(:category)
-    @names = Voucher.distinct.pluck(:name)
+    @categories = Voucher.where("quantity_left != 0").distinct.pluck(:category)
+    @names = Voucher.where("quantity_left != 0").distinct.pluck(:name)
     @vouchers = []
     @searched_category = params[:category]
     @searched_name = params[:name]

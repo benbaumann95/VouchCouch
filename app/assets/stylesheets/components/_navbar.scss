@@ -1,13 +1,16 @@
 /* Main navbar */
 .navbar-wagon {
   box-shadow: 0 1px 5px 0 rgba(0,0,0,0.07),0 1px 0 0 rgba(0,0,0,0.03);
-  background: $dark-gray;
+  background: $green;
   transition: all 0.3s ease;
   height: 60px;
   padding: 0px 30px;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  position: sticky !important;
+  z-index: 1;
+  top: 0;
 }
 
 /* Logo */
@@ -31,16 +34,16 @@
 
 /* Basic navbar item */
 .navbar-wagon-item {
-  padding: 0 20px;
+  padding: 0 10px;
 }
 
 /* Navbar link */
 .navbar-wagon-link {
-  color: $white;
-  font-size: 14px;
+  color: $dark-gray;
+  font-size: 16px;
 }
 .navbar-wagon-link:hover {
-  color: $green;
+  color: $white;
   text-decoration: none;
 }
 
