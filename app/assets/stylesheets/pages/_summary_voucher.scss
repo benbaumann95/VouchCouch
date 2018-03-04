@@ -1,7 +1,22 @@
-.summary-container {
-  width: 40%;
-  margin: 30px auto;
+@media (min-width: 1025px){
+  .summary-container {
+    width: 40%;
+    margin: 30px auto;
+  }
 }
+@media (min-width: 768px) and (max-width: 1024px) {
+  .summary-container {
+    width: 70%;
+    margin: 30px auto;
+  }
+}
+@media (min-width: 320px) and (max-width: 767px) {
+  .summary-container {
+    width: 90%;
+    margin: 30px auto;
+  }
+}
+
 .list-summary-voucher-title {
   font-size: 28px;
 }
@@ -24,7 +39,7 @@
   background: #f7f7f7;
   border: 1.5px solid #DDD;
   border-width: 0 1px;
-  padding: 30px;
+  padding: 20px;
   box-shadow: 0 1px 2px rgba(0,0,0,0.2);
   color: $dark-gray;
 }
@@ -33,7 +48,7 @@
   // border: 1px solid #DDD;
 }
 .summary-row:nth-child(2){
-  margin: 20px 0;
+  margin: 15px 0;
 }
 .summary-70{
   width: 70%;
@@ -54,7 +69,6 @@
   display: flex;
   flex-direction: column;
   position:relative;
-  padding-top: 5px;
 }
 .margin-right-summary {
   margin-right: 50px;
@@ -65,10 +79,16 @@
 .summary-50{
   width:50%;
   padding-left: 10%;
-  margin-bottom: 12px;
 }
 .summary-50:last-child{
   border-left: 2px solid rgba(220, 224, 244, 0.9);
+}
+.summary-35{
+  width:35%;
+}
+.summary-35:last-child{
+  border-left: 1px solid rgba(220, 224, 244, 0.9);
+  padding-left: 15px;
 }
 .quantity-btn{
   border-radius: 5px;
@@ -101,18 +121,22 @@
     background: #B33C36
   }
 }
+.ticket-name-show{
+  color: #4cb289;
+}
 .voucher-summary-description{
-    background: #fcfcfc;
-    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
-    padding: 30px 30px;
-    border-radius: 30px;
-    text-align: center;
+  background: #fcfcfc;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+  padding: 30px 30px;
+  border-radius: 30px;
+  text-align: center;
 }
 #valid-date-summary{
   color: $green;
 }
 .main-summary-container{
   border-bottom: 1px solid #DDD;
+  padding-bottom: 10px;
 }
 .secondary-summary-container{
   border-top: 1px solid #DDD;
