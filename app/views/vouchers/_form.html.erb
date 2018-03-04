@@ -1,24 +1,25 @@
 
 <div class="create-container">
   <div class="title-holder">
-    <%= image_tag "list-voucher-img.png", class: 'list-voucher-img' %>
-    <h3 class="list-voucher-title text-center">List a voucher</h3>
+
+    <h3 class="list-voucher-title text-center">List a ticket</h3>
   </div>
   <%= simple_form_for @voucher do |f| %>
 
   <div class="content-holder">
-    <div class="form-row">
-      <div class="form-40">
-        <%= f.label :name, "*Vendor name" %>
-        <%= f.text_field :name, placeholder: "e.g. Amazon", class: 'form-control' %>
-      </div>
 
-      <div class="form-30">
+    <div class="form-100">
+      <%= f.label :name, "*Ticket name" %>
+      <%= f.text_field :name, placeholder: "e.g. Amazon", class: 'form-control' %>
+    </div>
+
+    <div class="form-row">
+      <div class="form-70">
         <div class="flex-row">
           <div class="category-arrow">
             <i class="fas fa-sort-down"></i>
           </div>
-          <%= f.label :category %>
+          <%= f.label :category, "*Type" %>
           <%= f.select :category, ["Marketplace", "Fashion", "Travel", "Food & Drink", "Electronics", "Hobbies", "Services"], id: 'category', prompt: 'Select...', class: 'form-control, drop-down' %>
         </div>
       </div>
@@ -35,26 +36,19 @@
       </div>
     </div>
 
-    <div class="form-row">
-      <div class="form-30" style="margin: 0 20px 0 0">
-        <div class="flex-row">
-          <%= f.input :quantity_left, label: 'Quantity', class: 'form-control', id: 'form-description'%>
-        </div>
-      </div>
+    <div class="form-70">
+      <div class="flex-row">
 
-      <div class="form-70">
-        <div class="flex-row">
-
-         <div class="date-style">
-          <%= f.input :end_date, label: 'Valid until', class: 'form-control'%>
-        </div>
+       <div class="date-style">
+        <%= f.input :end_date, label: 'Date', class: 'form-control'%>
       </div>
     </div>
   </div>
 
+
   <div class="form-row margin-20">
     <div class="flex-row">
-      <%= f.label :photo, "Upload voucher" %>
+      <%= f.label :photo, "Upload ticket" %>
       <div class="photo-row">
         <%= f.input :photo, class: 'form-control, photo-btn'%>
         <div class="fake-btn">
@@ -70,7 +64,7 @@
   <div class="done-btn">
     <div type="button" data-toggle="modal" data-target="#exampleModal">
 
-      <%= f.submit "Done", class: 'done-btn' %>
+      <%= f.submit "List", class: 'done-btn' %>
     </div>
   </div>
 </div>
